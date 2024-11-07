@@ -7,7 +7,6 @@ Flask-Flash
 Flask-Bcrypt
 pymysql
 requests
-sqlite3
 qrcode
 Pillow
 datetime
