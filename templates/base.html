@@ -1,0 +1,24 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <link rel="stylesheet" href="base.css">
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} flash-message">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <script>
+        // Auto-hide flash messages after 3 seconds
+    setTimeout(() => {
+    const flashMessages = document.querySelectorAll('.flash-message');
+    flashMessages.forEach(message => {
+        message.style.opacity = '0';
+        setTimeout(() => message.remove(), 500); // Remove after fade-out
+  });
+}, 3000);
+
+    </script>
+  {% endif %}
+{% endwith %}

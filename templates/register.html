@@ -1,0 +1,92 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Register</title>
+</head>
+<body>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <div class="logo">
+        <img src="../static/images/logo.png" alt="Lift Investment Agency Logo">
+    </div>
+    <h2>Register</h2>
+    <form method="POST" onsubmit="return validateRegistrationForm()" action="/register">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="" disabled selected>Select your country</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="Burundi">Burundi</option>
+            <!-- Add more countries as needed -->
+        </select>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required onkeyup="checkPassword()">
+        <small id="passwordCriteria" style="color:red; display:none;">Password must be at least 12 characters, contain at least one uppercase letter, and one digit.</small>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required onkeyup="checkPassword()">
+
+        <button type="submit">Sign Up</button>
+    </form>
+    <a href="/login">Already have an account? Login here.</a>
+</div>
+
+<script>
+    function validateRegistrationForm() {
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const country = document.getElementById('country').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (!fullName || !email || !phone || !country || !password || !confirmPassword) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function checkPassword() {
+        const password = document.getElementById('password').value;
+        const criteria = document.getElementById('passwordCriteria');
+
+        const isValid = password.length >= 12 && /[A-Z]/.test(password) && /\d/.test(password);
+        criteria.style.display = isValid ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>

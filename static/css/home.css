@@ -1,0 +1,246 @@
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #000; /* Black header background */
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #f0c808; /* Soft gold color for the title */
+    text-shadow: 0px 0px 4px #f0c808; /* Subtle gold glow */
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f0c808; /* Gold hover effect */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.card {
+    background-color: #1a1a2e; /* Deep navy blue */
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(26, 26, 46, 0.3); /* Slight shadow on hover */
+}
+
+/* Buttons */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: gold;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #032207; /* Gold color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+    font-size: larger;
+    font-weight: bolder;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.button:hover {
+    background-color: white; /* Darker gold hover effect */
+    box-shadow: 0 6px 12px rgba(5, 140, 17, 0.4);
+    font-weight: bolder;
+    color: black;
+}
+
+#button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #099b2b; /* Gold color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+#button:hover {
+    background-color: #01160c; /* Darker gold hover effect */
+    box-shadow: 0 6px 12px rgba(13, 40, 2, 0.4);
+    color: goldenrod;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+/* Table Styles */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+}
+
+.transaction-table th, .transaction-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 1em;
+}
+
+.transaction-table th {
+    background-color: #1a1a2e; /* Navy blue header */
+    color: white;
+}
+
+.transaction-table tr:hover {
+    background-color: #f7f7f7; /* Light gray row hover */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #f0c808; /* Gold accent color */
+    text-decoration: none;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.transaction-table th, .transaction-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-table th {
+    background-color: #444;  /* Dark background for headers */
+    color: #fff;  /* White text for headers */
+}
+
+/* Status classes */
+.completed {
+    background-color: rgb(5, 61, 5);  /* Light green background for completed */
+    color: goldenrod;  /* Dark green text for completed */
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.pending {
+    background-color: rgb(218, 86, 86);  /* Light red background for pending */
+    color: goldenrod;  /* Dark red text for pending */
+    font-size: larger;
+    font-weight: bolder;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .card {
+        flex: 1 1 45%; /* Two cards per row */
+        margin: 10px 5px;
+    }
+
+    #logo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        flex-direction: column;
+    }
+    
+    .card {
+        margin: 15px 0;
+        flex: 1;
+    }
+    
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 10px 0;
+    }
+
+    #logo {
+        width: 100%;
+    }
+}

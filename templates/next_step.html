@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Step - Payment</title>
+    <link rel="stylesheet" href="/static/css/next_step.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Complete Your Payment</h2>
+        <p>Scan the QR Code below to complete the payment:</p>
+        <img src="../static/qrcodes/1_qrcode.png" alt="QR Code">
+        <p>Wallet Address: <span id="wallet_address" style="display: none;">{{ wallet_address }}</span></p>
+        <button onclick="copyAddress()">Copy Wallet Address</button>
+    </div>
+
+    <script>
+        function copyAddress() {
+    const walletAddress = document.getElementById('wallet_address').innerText;
+    navigator.clipboard.writeText(walletAddress).then(() => {
+        showCustomAlert("Wallet address copied to clipboard!", "/home");
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+
+function showCustomAlert(message, redirectUrl) {
+    // Create overlay
+    const overlay = document.createElement("div");
+    overlay.id = "customAlertOverlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.zIndex = "1000";
+
+    // Create modal box
+    const modal = document.createElement("div");
+    modal.id = "customAlertModal";
+    modal.style.backgroundColor = "#fff";
+    modal.style.padding = "20px";
+    modal.style.borderRadius = "8px";
+    modal.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+    modal.style.textAlign = "center";
+    modal.style.maxWidth = "400px";
+    modal.style.width = "80%";
+
+    // Message text
+    const messageText = document.createElement("p");
+    messageText.innerText = message;
+    messageText.style.marginBottom = "20px";
+    messageText.style.fontSize = "18px";
+    messageText.style.color = "#333";
+
+    // OK Button
+    const okButton = document.createElement("button");
+    okButton.innerText = "OK";
+    okButton.style.padding = "10px 20px";
+    okButton.style.fontSize = "16px";
+    okButton.style.color = "#fff";
+    okButton.style.backgroundColor = "#4CAF50";
+    okButton.style.border = "none";
+    okButton.style.borderRadius = "4px";
+    okButton.style.cursor = "pointer";
+    okButton.style.transition = "background-color 0.3s ease";
+
+    okButton.onmouseover = () => okButton.style.backgroundColor = "#45a049";
+    okButton.onmouseout = () => okButton.style.backgroundColor = "#4CAF50";
+
+    okButton.onclick = () => {
+        // Remove overlay and redirect
+        document.body.removeChild(overlay);
+        window.location.href = redirectUrl;
+    };
+
+    // Append elements
+    modal.appendChild(messageText);
+    modal.appendChild(okButton);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+}
+
+    </script>
+</body>
+</html>

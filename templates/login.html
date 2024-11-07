@@ -1,0 +1,59 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <div class="logo">
+        <img src="../static/images/logo.png" alt="Lift Investment Agency Logo">
+    </div>
+    <h2>Login</h2>
+    <form method="POST" onsubmit="return validateForm()"  action="/login">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="robot-check">
+            <input type="checkbox" id="notRobot" required>
+            <label for="notRobot">I am not a robot</label>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+    <a href="/register">Don't have an account? Register here.</a>
+</div>
+
+<script>
+    function validateForm() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (!email || !password) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>

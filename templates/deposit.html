@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+    <link rel="stylesheet" href="/static/css/deposit.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Deposit Information</h1>
+        <form action="/deposit" method="post" class="deposit-form">
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" name="amount" id="amount" placeholder="Enter amount" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="deposit">Deposit</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="submit-btn">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <!-- <script src="/static/script/deposit.js"></script> -->
+</body>
+</html>

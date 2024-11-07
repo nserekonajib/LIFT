@@ -1,0 +1,113 @@
+/* next_step.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333333;
+}
+
+.container {
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 100%;
+    max-width: 200px;
+    margin: 20px 0;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+}
+
+#wallet_address {
+    font-weight: bold;
+    color: #4CAF50; /* Green color for wallet address */
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4CAF50; /* Green button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #388e3c;
+}
+
+#customAlertOverlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#customAlertModal p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+#customAlertModal button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#customAlertModal button:hover {
+    background-color: #45a049;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p, button {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,23 @@
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    max-width: 300px;
+    z-index: 1050;
+}
+
+.flash-message {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #444; /* Default background color */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.alert-success { background-color: #4CAF50; } /* Green for success */
+.alert-danger { background-color: #f44336; }  /* Red for error */
+.alert-warning { background-color: #ff9800; } /* Orange for warning */
+.alert-info { background-color: #2196F3; }    /* Blue for info */

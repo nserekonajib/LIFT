@@ -1,0 +1,117 @@
+/* static/css/login.css */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Light background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.logo {
+    margin-bottom: 20px;
+    
+    
+}
+
+h2 {
+    color: #3d6b3d; /* Dark green */
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+h2:hover {
+    color: #b19a00; /* Gold on hover */
+}
+
+form {
+    background-color: #fff; /* White background for form */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Limit width */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #3d6b3d; /* Dark green */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #3d6b3d; /* Dark green border */
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    border-color: #b19a00; /* Gold on focus */
+}
+
+.robot-check {
+    margin: 15px 0;
+}
+
+button {
+    background-color: #3d6b3d; /* Dark green */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b19a00; /* Gold on hover */
+    box-shadow: 0 0 10px rgba(177, 154, 0, 0.6);
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #3d6b3d; /* Dark green */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b19a00; /* Gold on hover */
+}
+
+.flashes {
+    color: red;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

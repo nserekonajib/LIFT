@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="../static/images/logo.png" alt="log" id="logo">
+            <nav>
+                <form action="{{ url_for('logout') }}" method="post" style="display:inline;">
+                    <button type="submit" id="button">Logout</button>
+                </form>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card-container">
+                <div class="card">
+                    <h2>Investment</h2>
+                    <p>${{ finance.investment }}</p>
+                </div>
+                <div class="card">
+                    <h2>Earnings</h2>
+                    <p>${{ finance.earnings }}</p>
+                </div>
+                <div class="card">
+                    <h2>Withdrawn</h2>
+                    <p>${{ finance.withdrawn }}</p>
+                </div>
+                <div class="card">
+                    <h2>Balance</h2>
+                    <p>${{ finance.balance }}</p>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="/deposit" class="button">Deposit</a>
+                <a href="/withdraw" class="button">Withdraw</a>
+            </div>
+
+            <h2>Transaction History</h2>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.date }}</td>
+                        <td>${{ transaction.amount }}</td>
+                        <td class="{{ 'completed' if transaction.status == 'completed' else 'pending' }}">
+                            {{ transaction.status }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Popup -->
+    <!-- Plans Popup -->
+<div id="plans-popup" class="popup">
+    <div class="popup-content">
+        <!-- <span class="close" onclick="closePopup()">&times;</span> -->
+        <h2>Select Your Investment Plan</h2>
+        <div class="card-container">
+            <input type="text" value="starter" id="starter" style="display: none;">
+            <div class="card">
+                <h3>Starter Plan</h3>
+                <p>Features: $3 - $30</p>
+                <p>Commission: 10%</p>
+                <p>Compound: 24 hours</p>
+                <a href="{{ url_for('subscribe', plan='starter') }}" class="subscribe-button">Subscribe</a>
+            </div>
+            <input type="text" value="bronze" id="bronze" style="display: none;">
+            <div class="card">
+                <h3>Bronze Plan</h3>
+                <p>Features: $31 - $99</p>
+                <p>Commission: 20%</p>
+                <p>Compound: 24 hours</p>
+                <a href="{{ url_for('subscribe', plan='bronze') }}" class="subscribe-button">Subscribe</a>
+                
+
+            </div>
+            <input type="text" value="gold" id="gold" style="display: none;">
+            <div class="card">
+                <h3>Gold Plan</h3>
+                <p>Features: $100 - $500</p>
+                <p>Commission: 30%</p>
+                <p>Compound: 24 hours</p>
+                <a href="{{ url_for('subscribe', plan='gold') }}" class="subscribe-button">Subscribe</a>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Welcome to your Finance Dashboard!</h2>
+            <p>Your financial overview is ready. Check your transactions and manage your funds.</p>
+            
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="../static/script/home.js"></script>
+</html>
